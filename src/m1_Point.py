@@ -43,7 +43,7 @@ def main():
 # NOTE: For ALL of the methods that you implement, the method is allowed
 # to have additional side effects as needed by it and/or other methods.
 ###############################################################################
-
+import math
 
 class Point(object):
 
@@ -51,8 +51,8 @@ class Point(object):
         self.x = x
         self.y = y
         self.moves = 0
-        self.x_start = x
-        self.y_start = y
+        self.x_start = self.x
+        self.y_start = self.y
         self.traveled = 0
 
     def __repr__(self):
@@ -61,28 +61,39 @@ class Point(object):
     def clone(self):
         return Point(self.x, self.y)
 
-    def move_to(self, x, y):
-        self.x = x
-        self.y = y
+    def move_to(self, x_new, y_new):
+        x_distance = (x_new - self.x)
+        y_distance = (y_new - self.y)
+        self.traveled = self.traveled + math.sqrt((x_distance ** 2) + (y_distance **2))
+        self.x = x_new
+        self.y = y_new
         self.moves = self.moves + 1
 
     def move_by(self, dx, dy):
         self.x = self.x + dx
         self.y = self.y + dy
         self.moves = self.moves + 1
+        x_distance = dx
+        y_distance = dy
+        self.traveled = self.traveled + math.sqrt((x_distance ** 2) + (y_distance **2))
 
     def get_number_of_moves_made(self):
         return self.moves
 
-    def get_distance_from(self, p2):
-        return (((p2.x - self.x) ** 2 + (p2.y - self.y) ** 2) ** (1/2))
+    def get_distance_from(self, point):
+        dx = self.x - point.x
+        dy = self.y - point.y
+        return (round(math.sqrt((dx ** 2) + (dy **2))))
 
     def get_distance_from_start(self):
-        return (((self.x_start - self.x) ** 2 + (self.y_start - self.y) ** 2) ** (1/2))
+        dx = self.x - self.x_start
+        dy = self.y - self.y_start
+        return (round(math.sqrt((dx ** 2) + (dy **2))), 3)
     # review and study this because it's a bit confusing, had to add self.x_start and self.y_start to class def
 
     def get_distance_traveled(self):
-        return (((self.x_start - self.x) ** 2 + (self.y_start - self.y) ** 2) ** (1/2))
+        return round(self.traveled, 3)
+        # this problem made me change a ton of code (in move_to and move_by) to make it work so yay
 
     def closer_to(self, p1, p2):
         if (self.get_distance_from(p1) > self.get_distance_from(p2)):
