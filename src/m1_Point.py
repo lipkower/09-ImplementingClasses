@@ -53,9 +53,10 @@ class Point(object):
         self.moves = 0
         self.x_start = x
         self.y_start = y
+        self.traveled = 0
 
     def __repr__(self):
-        return 'Point({}, {})'.format(self.x, self.y)  # LOOK BACK AT THIS AND ASK QUESTIONS !!!!!!!!!!!!
+        return 'Point({}, {})'.format(self.x, self.y)  # study and review this
 
     def clone(self):
         return Point(self.x, self.y)
@@ -78,11 +79,10 @@ class Point(object):
 
     def get_distance_from_start(self):
         return (((self.x_start - self.x) ** 2 + (self.y_start - self.y) ** 2) ** (1/2))
-    # REVIEW THIS BECAUSE IT IS A BIT CONFUSING !!! HAD TO INPUT self.x_start and self.y_start
-    # in THE POINT CLASS
+    # review and study this because it's a bit confusing, had to add self.x_start and self.y_start to class def
 
     def get_distance_traveled(self):
-        return          # !!!! DO THIS IDK WHAT THE HECK THIS IS
+        return (((self.x_start - self.x) ** 2 + (self.y_start - self.y) ** 2) ** (1/2))
 
     def closer_to(self, p1, p2):
         if (self.get_distance_from(p1) > self.get_distance_from(p2)):
