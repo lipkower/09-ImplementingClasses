@@ -243,7 +243,7 @@ def run_test_repr():
         print('Actual for p2:  ', p2)
     """
     # -------------------------------------------------------------------------
-    # TODO: 4.  Follow the same instructions as in _TODO_ 3 above,
+    # done: 4.  Follow the same instructions as in _TODO_ 3 above,
     #           but for the  __repr__  method specified above.
     # -------------------------------------------------------------------------
     print()
@@ -917,7 +917,7 @@ def run_test_get_distance_traveled():
         print('Actual:', p4.get_distance_traveled())
     """
     # -------------------------------------------------------------------------
-    # TODO: 11.  Follow the same instructions as in _TODO_ 3 above,
+    # done: 11.  Follow the same instructions as in _TODO_ 3 above,
     #    but for the  get_distance_traveled  method specified above.
     # -------------------------------------------------------------------------
     print()
