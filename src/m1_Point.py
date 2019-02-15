@@ -45,6 +45,7 @@ def main():
 ###############################################################################
 import math
 
+
 class Point(object):
 
     def __init__(self, x, y):
@@ -64,7 +65,7 @@ class Point(object):
     def move_to(self, x_new, y_new):
         x_distance = (x_new - self.x)
         y_distance = (y_new - self.y)
-        self.traveled = self.traveled + math.sqrt((x_distance ** 2) + (y_distance **2))
+        self.traveled = self.traveled + math.sqrt((x_distance ** 2) + (y_distance ** 2))
         self.x = x_new
         self.y = y_new
         self.moves = self.moves + 1
@@ -75,7 +76,7 @@ class Point(object):
         self.moves = self.moves + 1
         x_distance = dx
         y_distance = dy
-        self.traveled = self.traveled + math.sqrt((x_distance ** 2) + (y_distance **2))
+        self.traveled = self.traveled + math.sqrt((x_distance ** 2) + (y_distance ** 2))
 
     def get_number_of_moves_made(self):
         return self.moves
@@ -83,12 +84,12 @@ class Point(object):
     def get_distance_from(self, point):
         dx = self.x - point.x
         dy = self.y - point.y
-        return (round(math.sqrt((dx ** 2) + (dy **2))))
+        return (round(math.sqrt((dx ** 2) + (dy ** 2))))
 
     def get_distance_from_start(self):
         dx = self.x - self.x_start
         dy = self.y - self.y_start
-        return (round(math.sqrt((dx ** 2) + (dy **2))), 3)
+        return (round(math.sqrt((dx ** 2) + (dy ** 2))), 3)
     # review and study this because it's a bit confusing, had to add self.x_start and self.y_start to class def
 
     def get_distance_traveled(self):
